@@ -4,7 +4,7 @@
 FROM node:22-alpine AS deps
 WORKDIR /app
 
-RUN npm install -g pnpm
+RUN npm install -g pnpm drizzle-kit
 
 # Copy workspace configuration and package files
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml turbo.json ./
@@ -34,3 +34,8 @@ COPY apps/server/ ./apps/server/
 COPY packages/ ./packages/
 
 WORKDIR /app/apps/server
+
+ENTRYPOINT ["pnpm"]
+# Set the default command to run
+CMD ["run", "db:migrate"]
+
