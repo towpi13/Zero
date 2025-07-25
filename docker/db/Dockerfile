@@ -38,4 +38,3 @@ WORKDIR /app/apps/server
 ENTRYPOINT ["pnpm"]
 # Set the default command to run
 CMD ["run", "db:migrate"]
-
