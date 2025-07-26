@@ -1,0 +1,36 @@
+services:
+  app:
+    image: docker.io/thope13/zero:latest
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      db:
+        condition: service_healthy
+      migrations:
+        condition: service_completed_successfully
+      valkey:
+        condition: service_healthy
+      upstash-proxy:
+        condition: service_healthy
+    healthcheck:
+      test: ['CMD', 'wget', '--spider', '--quiet', 'http://127.0.0.1:3000']
+      interval: 90s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    ports:
+      - 3000:3000
+
+
+  # migrations:
+  #   image: docker.io/thope13/migration:latest
+  #   environment:
+  #     - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-zerodotemail}
+  #   depends_on:
+  #     db:
+  #       condition: service_healthy
+  #   command: ['pnpm', 'run', 'db:migrate']
+  #   restart: 'no'
