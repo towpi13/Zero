@@ -8,7 +8,7 @@ COPY . .
 RUN pnpm install --no-frozen-lockfile && \
     chown -R node:node /app
 
-USER node
-ENV TURBO_TELEMETRY_DISABLED=1
+RUN chmod -R 777 /ap
+
 EXPOSE 3000
 CMD ["pnpm", "dev"]
