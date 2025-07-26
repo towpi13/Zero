@@ -5,7 +5,6 @@ FROM node:22-alpine AS base
 
 # Install unzip, a dependency for installing Bun, and then install Bun
 RUN apk add --no-cache unzip
-RUN curl -fsSL https://bun.sh/install | bash
 
 # Add Bun to the PATH
 ENV PATH="/root/.bun/bin:${PATH}"
