@@ -1,5 +1,6 @@
 services:
-    zero: docker.io/thope13/zero:latest
+  zero:
+    image: docker.io/thope13/zero:latest
     environment:
       NEXT_PUBLIC_BACKEND_URL: ${NEXT_PUBLIC_BACKEND_URL:-http://cf-worker.example}
       NEXT_PUBLIC_APP_URL: ${NEXT_PUBLIC_APP_URL:-http://localhost:3000}
@@ -76,7 +77,7 @@ services:
       retries: 5
 
   upstash-proxy:
-    image: docker.io/hiett/serverless-redis-http:latest
+    image: hiett/serverless-redis-http:latest
     environment:
       SRH_MODE: env
       SRH_TOKEN: ${REDIS_TOKEN:-upstash-local-token}
