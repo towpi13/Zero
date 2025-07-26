@@ -1,8 +1,5 @@
 services:
-  zero:
-    build:
-      context: .
-      dockerfile: docker/app/Dockerfile
+    zero: docker.io/thope13/zero:latest
     environment:
       NEXT_PUBLIC_BACKEND_URL: ${NEXT_PUBLIC_BACKEND_URL:-http://cf-worker.example}
       NEXT_PUBLIC_APP_URL: ${NEXT_PUBLIC_APP_URL:-http://localhost:3000}
@@ -40,9 +37,7 @@ services:
       - 3000:3000
 
   migrations:
-    build:
-      context: .
-      dockerfile: docker/db/Dockerfile
+    image: docker.io/thope13/migration:latest
     environment:
       - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-zerodotemail}
     depends_on:
@@ -81,7 +76,7 @@ services:
       retries: 5
 
   upstash-proxy:
-    image: hiett/serverless-redis-http:latest
+    image: docker.io/hiett/serverless-redis-http:latest
     environment:
       SRH_MODE: env
       SRH_TOKEN: ${REDIS_TOKEN:-upstash-local-token}
