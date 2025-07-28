@@ -1,6 +1,7 @@
 services:
   app:
     image: docker.io/thope13/zero:latest
+    user: node
     env_file:
       - .env
     volumes:
