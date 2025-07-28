@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "wrangler dev --show-interactive-dev-session=false --experimental-vectorize-bind-to-prod --env local",
     "deploy": "wrangler deploy",
+    "start": "wrangler dev --show-interactive-dev-session=false --experimental-vectorize-bind-to-prod --env local --inspector-port 9231",
     "types": "wrangler types --env local",
     "lint": "eslint .",
     "db:generate": "drizzle-kit generate",
