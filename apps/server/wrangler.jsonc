@@ -116,7 +116,7 @@
         "VITE_PUBLIC_APP_URL": "http://localhost:3000",
         "JWT_SECRET": "secret",
         "ELEVENLABS_API_KEY": "1234567890",
-        "DISABLE_CALLS": "true",
+        "DISABLE_CALLS": "false",
         "VOICE_SECRET": "1234567890",
         "GOOGLE_S_ACCOUNT": "{}",
         "DROP_AGENT_TABLES": "false",
