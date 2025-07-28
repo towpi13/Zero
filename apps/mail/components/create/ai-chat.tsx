@@ -202,6 +202,7 @@ export function AIChat({
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const { chatMessages } = useBilling();
+  chatMessages.enabled = true;
   const { isFullScreen } = useAIFullScreen();
   const [, setPricingDialog] = useQueryState('pricingDialog');
   const [aiSidebarOpen] = useQueryState('aiSidebar');
