@@ -347,7 +347,8 @@ const createAuthConfig = () => {
       'https://staging.0.email',
       'https://0.email',
       'http://localhost:3000',
-      'https://mail.towpsz.pro'
+      'https://mail.towpsz.pro',
+      'https://mail-auth.towpsz.pro'
     ],
     session: {
       cookieCache: {
