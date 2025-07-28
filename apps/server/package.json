@@ -74,11 +74,13 @@
     "string-strip-html": "^13.4.12",
     "superjson": "catalog:",
     "twilio": "5.7.0",
+    "ulid": "3.0.1",
     "uuid": "11.1.0",
     "wrangler": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
+    "@effect/language-service": "0.31.1",
     "@types/he": "1.2.3",
     "@types/node": "^22.9.0",
     "@types/react": "19.1.6",
