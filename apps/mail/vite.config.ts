@@ -1,3 +1,5 @@
+// apps/mail/vite.config.js
+
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import { cloudflare } from '@cloudflare/vite-plugin';
 import { reactRouter } from '@react-router/dev/vite';
@@ -53,6 +55,13 @@ export default defineConfig({
     warmup: {
       clientFiles: ['./app/**/*', './components/**/*'],
     },
+    // ADDED: Allowed hosts for the development server
+    allowedHosts: [
+      'localhost',
+      '127.0.0.1',
+      'mail.towpsz.pro', // Your custom domain for local access
+      // Add any other specific hosts you might need to allow for local development
+    ],
   },
   css: {
     postcss: {
