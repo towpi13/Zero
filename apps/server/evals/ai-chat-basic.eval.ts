@@ -1,5 +1,5 @@
 import { evalite } from "evalite";
-import { OpenAI  } from "@ai-sdk/openai";
+import { openAI  } from "@ai-sdk/openai";
 import { streamText } from "ai";
 import { traceAISDKModel } from "evalite/ai-sdk";
 import { Factuality, Levenshtein } from "autoevals";
@@ -10,10 +10,7 @@ import { z } from "zod";
 // base model (untraced) for internal helpers to avoid trace errors
 // add ur own model here 
 const baseModel = openai("gpt-4o-mini");
-const openai = new OpenAI({
-  apiKey: process.env.OPENROUTER_API_KEY,
-  baseURL: process.env.OPENAI_BASE_URL,
-});
+
 // traced model for the actual task under test
 const model = traceAISDKModel(baseModel);
 
